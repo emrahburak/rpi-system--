@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3.9
 
 import smtplib  # importing the module
 from dotenv import dotenv_values
