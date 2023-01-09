@@ -1,0 +1,13 @@
+[Unit]
+Description=System ready send email service
+After=network-online.target
+ 
+[Service]
+WorkingDirectory=/home/dietpi/Repo/Gıt/rpi-system--/
+ExecStart=/bin/python3 /home/dietpi/Repo/Gıt/rpi-system--/send.py
+StandartOutput=inherit
+StandartError=inherit
+User=dietpi
+ 
+[Install]
+WantedBy=multi-user.target
