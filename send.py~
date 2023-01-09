@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
-import smtplib  
-import uuid
+import smtplib  # importing the module
 from dotenv import dotenv_values
 from email.message import EmailMessage
 
@@ -20,19 +19,17 @@ if config:
         smtp_server.ehlo()  # calling the ehlo() again as encryption happens on calling startttls()
         smtp_server.login(sender_add, password)  # logging into out email id
 
-
         msg = EmailMessage()
-        session_id = uuid.uuid4().hex
+
 
         msg_to_be_sent = '''
-        Test ! {}
+        Test !
         Hello, Human!
         Hope you are doing well.
         System ready
-        '''.format(session_id)
-
+        '''
         msg.set_content(msg_to_be_sent)
-        msg['Subject'] = "Hello from dietpi/ebg sessionID: {}".format(session_id)
+        msg['Subject'] = "Hello from dietpi/ebg"
         msg['From'] = sender_add
         msg['To'] = receiver_add
         # sending the mail by specifying the from and to address and the message
