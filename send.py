@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 
+import os
 import smtplib  
 import uuid
 from dotenv import dotenv_values
 from email.message import EmailMessage
 
 config = dotenv_values(".env")
+
+def get_cpu():
+    cmd = "sudo cpu | grep  'Arch\\|Temp\\|Gover\\|CPU'"
+    return cmd
 
 if config:
     if config["EMAIL"] and config["PASSWORD"]:
@@ -25,11 +30,12 @@ if config:
         session_id = uuid.uuid4().hex
 
         msg_to_be_sent = '''
-        Test ! {}
+        Test ! session: {}
         Hello, Human!
         Hope you are doing well.
+        cpu: {}
         System ready
-        '''.format(session_id)
+        '''.format(session_id,get_cpu())
 
         msg.set_content(msg_to_be_sent)
         msg['Subject'] = "Hello from dietpi/ebg sessionID: {}".format(session_id)
