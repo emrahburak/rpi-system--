@@ -10,7 +10,7 @@ config = dotenv_values(".env")
 
 def get_cpu():
     cmd = "sudo cpu | grep  'Arch\\|Temp\\|Gover\\|CPU'"
-    return cmd
+    return os.system(cmd)
 
 if config:
     if config["EMAIL"] and config["PASSWORD"]:
