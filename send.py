@@ -8,9 +8,9 @@ from email.message import EmailMessage
 
 config = dotenv_values(".env")
 
-def get_cpu():
-    cmd = "sudo cpu | grep  'Arch\\|Temp\\|Gover\\|CPU'"
-    return os.system(cmd)
+# def get_cpu():
+#     cmd = "sudo cpu | grep  'Arch\\|Temp\\|Gover\\|CPU'"
+#     return os.system(cmd)
 
 if config:
     if config["EMAIL"] and config["PASSWORD"]:
@@ -33,9 +33,8 @@ if config:
         Test ! session: {}
         Hello, Human!
         Hope you are doing well.
-        cpu: {}
         System ready
-        '''.format(session_id,get_cpu())
+        '''.format(session_id)
 
         msg.set_content(msg_to_be_sent)
         msg['Subject'] = "Hello from dietpi/ebg sessionID: {}".format(session_id)
@@ -45,7 +44,7 @@ if config:
         # smtp_server.sendmail(sender_add, receiver_add, msg_to_be_sent)
         smtp_server.send_message(msg)
         # priting a message on sending the mail
-        print('Successfully the mail is sent')
+        print('Successfully the mail is sent at session: {}'.format(session_id))
         smtp_server.quit()  # terminating the server
     else:
         print("Please fill the blanks in .env file")
