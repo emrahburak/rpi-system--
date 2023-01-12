@@ -2,7 +2,8 @@ const TelegramBot = require("node-telegram-bot-api");
 require("dotenv").config();
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = process.env.BOT_TOKEN;
+const token = process.env.BOT_TOKEN || "5823147371:AAH40_n8WlNL8w51Jtqogh8sWQGKcepZXCg";
+
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
@@ -31,9 +32,9 @@ bot.on("message", (msg) => {
   }
   var bye = "bye";
   if (msg.text.toString().toLowerCase().includes(bye)) {
-    bot.sendMessage(msg.chat.id, "Hope to see you around again , Bye");
+    bot.sendMessage(msg.chat.id, "Hope to see you around again , Bye. " + msg.from.first_name);
   }
 
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, "Received your message");
+  // bot.sendMessage(chatId, "Received your message");
 });

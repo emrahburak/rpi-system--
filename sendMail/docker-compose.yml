@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   c_send_mail:
-    image: emrahburak/sendmail:1.0.0
+    image: emrahburak/sendmail:dev
     build: 
       context: .
     env_file:
