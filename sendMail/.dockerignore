@@ -1,0 +1,7 @@
+venv/
+
+ebg-sendmail.service
+*.backup
+*.md
+.env
+.gitignore

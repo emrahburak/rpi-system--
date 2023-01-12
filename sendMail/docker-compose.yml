@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  c_send_mail:
+    image: emrahburak/sendmail:1.0.0
+    build: 
+      context: .
+    env_file:
+      - .env
+
