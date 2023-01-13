@@ -4,7 +4,7 @@ After=docker.service
  
 [Service]
 WorkingDirectory=/home/dietpi/Repo/Gıt/rpi-system--/
-ExecStart=/bin/docker run --rm --env-file .env emrahburak/sendmail:dev
+ExecStart=/bin/docker run --rm -e EMAIL=EMAIL -e PASSWORD=PASSWORD emrahburak/sendmail:dev
 StandartOutput=inherit
 StandartError=inherit
 User=dietpi
