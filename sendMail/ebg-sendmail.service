@@ -3,7 +3,7 @@ Description=System ready send email service
 After=docker.service
  
 [Service]
-EnvironmentFile=~/Repo/Git/rpi-system--/.env
+EnvironmentFile=/home/dietpi/Repo/Git/rpi-system--/.env
 WorkingDirectory=/home/dietpi/Repo/Git/rpi-system--/
 ExecStart=/bin/docker run --rm --env-file $EnvironmentFile emrahburak/sendmail:dev
 User=dietpi
